@@ -38,11 +38,61 @@ def print_activities():
 
 def temp_main():
     seed_activites_map()
+    print("Welcome to Hubbub!", VERSION)
+    print("")
+    # people = input("How many people are participating? ");
+
+    a = input("Is it: [d]ay or [n]ight, other input to skip >>> ")
+    if(a == 'd'):
+        doQuery("day")
+    elif(a == 'n'):
+        doQuery("night")
+    else:
+        print("Question skipped")
+    print("")
+
+    a = input("Do you want to hangout: [i]nside or [o]utside?, other input to skip >>> ")
+    if(a == 'i'):
+        doQuery("inside")
+    elif(a == 'o'):
+        doQuery("outside")
+    else:
+        print("Question skipped")
+    print("")
+
+    a = input("How are do you want to feel: [a]ctive or [r]elaxed?, other input to skip >>> ")
+    if(a == 'a'):
+        doQuery("active")
+    elif(a == 'r'):
+        doQuery("relaxed")
+    else:
+        print("Question skipped")
+    print("")
+
+    a = input("Can you travel: [l]ocal or [r]emote?, other input to skip >>> ")
+    if(a == 'l'):
+        doQuery("local")
+    elif(a == 'r'):
+        doQuery("remote")
+    else:
+        print("Question skipped")
+    print("")
+
+    a = input("Do you want your activity to be: [p]roductive or [r]ecreational?, other input to skip >>> ")
+    if(a == 'p'):
+        doQuery("productive")
+    elif(a == 'r'):
+        doQuery("recreational")
+    else:
+        print("Question skipped")
+    print("")
+
+    print("Calculating the perfect fit... ")
+    print("")
+
     a = input("Enter a tag: ")
     doQuery(a)
     print_activities()
-
-
 
 temp_main()
 
