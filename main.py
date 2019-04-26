@@ -8,14 +8,16 @@ VERSION = "v0.1"
 activities_map = {}
 
 def attemptMongoConnection():
-    cred_file = open("credentials.txt","r")
-    mongo_ip = cred_file.readline()
-    connection_string = "mongodb://" + mongo_ip.strip()
-    connection = MongoClient(connection_string)
-    db = connection.hubbub
-    activities = db.activities
-    return activities
-
+    try:
+        cred_file = open("credentials.txt","r")
+        mongo_ip = cred_file.readline()
+        connection_string = "mongodb://" + mongo_ip.strip()
+        connection = MongoClient(connection_string)
+        db = connection.hubbub
+        activities = db.activities
+        return activities
+    except Exception as e:
+        print("The Mongo connection failed!")
 
 db = attemptMongoConnection()
 
@@ -24,7 +26,6 @@ def seed_activites_map():
         activities_map[a["name"]] = 0
 
 def doQuery(tag):
-
     fil = {
     'tags': tag
     }
@@ -36,11 +37,13 @@ def print_activities():
     for a in activities_map:
         print(str(activities_map[a]), a)
 
-def temp_main():
+def main():
     seed_activites_map()
     print("Welcome to Hubbub!", VERSION)
     print("")
+
     # people = input("How many people are participating? ");
+    # print("")
 
     a = input("Is it: [d]ay or [n]ight, other input to skip >>> ")
     if(a == 'd'):
@@ -90,47 +93,6 @@ def temp_main():
     print("Calculating the perfect fit... ")
     print("")
 
-    a = input("Enter a tag: ")
-    doQuery(a)
     print_activities()
 
-temp_main()
-
-
-# def main():
-#     activities = attemptMongoConnection()
-#
-#     print("Welcome to Hubbub!", VERSION)
-#     people = input("How many people are participating? ");
-#from bson.objectid import ObjectId
-
-#     a = input("What is the time: [d]ay, [n]night >>> ")
-#     if(a == 'n'):
-#         doQuery(activities, "night")
-#     else if(a == 'd'):
-#         doQuery("day")
-#     else:
-#         print("Thats not valid!")
-
-
-    #
-    #
-    #
-    # print("Please enter some tags you are interested in!")
-    # while(True):
-    #     a = input("Enter: ")
-    #     if(a == ""):
-    #         break
-    #     yes_tags.append(a)
-    #
-    # print("Please enter some activities you are NOT interested in!")
-    # while(True):
-    #     a = input("Etemp_main()
-#nter: ")
-    #     if(a == ""):
-    # activities = attemptMongoConnection()
-    #         break
-    #     no_tags.append(a)
-    #
-    # print("Calculating the perfect fit... ")
-    # print(no_tags)
+main()
