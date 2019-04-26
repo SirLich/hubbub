@@ -16,3 +16,25 @@ Next steps:
     Populate the mongo database
     test? Ha
 """
+
+outside
+inside
+
+winter
+summer
+spring
+fall
+
+day
+night
+
+active
+relaxing
+
+local
+remote
+
+productive
+recreational
+
+Presenting middle Wednesday
