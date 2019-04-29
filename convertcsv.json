@@ -1,0 +1,250 @@
+[
+ {
+   "name": "Outdoor water polo ",
+   "min": 2,
+   "max": 8,
+   "tags": [
+     "outside","active","recreational","summer","spring","fall"
+     ]
+ },
+ {
+   "name": "Visit the library",
+   "min": 1,
+   "max": 10,
+   "tags": "inside,day,night,relaxing,remote,recreational,productive"
+ },
+ {
+   "name": "Listen to podcasts",
+   "min": 1,
+   "max": 100,
+   "tags": "inside,day,night,relaxing,local,productive"
+ },
+ {
+   "name": "Bake ",
+   "min": 1,
+   "max": 5,
+   "tags": "inside,day,local,productive,recreational"
+ },
+ {
+   "name": "Juggle ",
+   "min": 1,
+   "max": 100,
+   "tags": "outside,summer,spring,fall,day,active,local,recreational"
+ },
+ {
+   "name": "Knit ",
+   "min": 1,
+   "max": 1,
+   "tags": "inside,winter,night,relaxing,local,recreational"
+ },
+ {
+   "name": "Visit a museum ",
+   "min": 1,
+   "max": 10,
+   "tags": "inside,day,remote,productive"
+ },
+ {
+   "name": "Visit the zoo ",
+   "min": 1,
+   "max": 10,
+   "tags": "summer,spring,fall,day,remote,recreational"
+ },
+ {
+   "name": "Meal prep ",
+   "min": 1,
+   "max": 2,
+   "tags": "inside,day,local,productive"
+ },
+ {
+   "name": "Oragami ",
+   "min": 1,
+   "max": 5,
+   "tags": "inside,relaxing,local,recreational"
+ },
+ {
+   "name": "Yoga ",
+   "min": 1,
+   "max": 10,
+   "tags": "inside,day,active,relaxing,remote,productive,recreational"
+ },
+ {
+   "name": "Geocaching ",
+   "min": 1,
+   "max": 10,
+   "tags": "outside,summer,spring,fall,day,actice,remote,recreational"
+ },
+ {
+   "name": "Build paper airplanes",
+   "min": 1,
+   "max": 10,
+   "tags": "outside,spring,summer,fall,day,active,local,recreational"
+ },
+ {
+   "name": "Read a book ",
+   "min": 1,
+   "max": 1,
+   "tags": "inside,night,relaxing,local,productive,recreational"
+ },"inside,day,night,relaxing,remote,recreational,productive"
+ {
+   "name": "Watch a movie ",
+   "min": 1,
+   "max": 5,
+   "tags": "inside,night,relaxing,local,recreational"
+ },
+ {
+   "name": "Nap",
+   "min": 1,
+   "max": 1,
+   "tags": "inside,day,relaxing,local,recreational"
+ },
+ {
+   "name": "Puzzles ",
+   "min": 1,
+   "max": 5,
+   "tags": "inside,day,night,relaxing,local,recreational"
+ },
+ {
+   "name": "Meditate ",
+   "min": 1,
+   "max": 1,
+   "tags": "inside,day,relaxing,local,recreational"
+ },
+ {
+   "name": "Cards",
+   "min": 2,
+   "max": 10,
+   "tags": "inside,day,night,relaxing,local,recreational"
+ },
+ {
+   "name": "Swimming",
+   "min": 1,
+   "max": 100,
+   "tags": "outside,summer,day,active,remote,recreational"
+ },
+ {
+   "name": "Soccer",
+   "min": 2,
+   "max": 100,
+   "tags": "outside,summer,day,active,remote,recreational"
+ },
+ {
+   "name": "Football",
+   "min": 4,
+   "max": 100,
+   "tags": "outside,summer,day,active,remote,recreational"
+ },
+ {
+   "name": "Basketball ",
+   "min": 2,
+   "max": 100,
+   "tags": "outside,summer,day,active,remote,recreational"
+ },
+ {
+   "name": "Play an instrument ",
+   "min": 1,
+   "max": 5,
+   "tags": "inside,relaxing,local,productive"
+ },
+ {
+   "name": "Disc Golf",
+   "min": 1,
+   "max": 5,
+   "tags": "outside,summer,day,active,remote,recreational"
+ },
+ {
+   "name": "Ultimate Frisbee ",
+   "min": 4,
+   "max": 100,
+   "tags": "outside,summer,day,active,remote,recreational"
+ },
+ {
+   "name": "Play catch ",
+   "min": 2,
+   "max": 5,
+   "tags": "outside,summer,day,active,local,recreational"
+ },
+ {
+   "name": "Toss a Frisbee ",
+   "min": 2,
+   "max": 5,
+   "tags": "outside,summer,day,active,local,recreational"
+ },
+ {
+   "name": "Watch television ",
+   "min": 1,
+   "max": 5,
+   "tags": "inside,night,relaxing,local,recreational"
+ },
+ {
+   "name": "Stargaze",
+   "min": 1,
+   "max": 10,
+   "tags": "outside,summer,night,relaxing,local,recreational"
+ },
+ {
+   "name": "Take a walk",
+   "min": 1,
+   "max": 5,
+   "tags": "outside,summer,fall,spring,day,active,relaxing,local,productive,recreational"
+ },
+ {
+   "name": "Hike ",
+   "min": 1,
+   "max": 5,
+   "tags": "outside,summer,fall,spring,day,active,remote,recreational"
+ },
+ {
+   "name": "Snowball fight ",
+   "min": 2,
+   "max": 10,
+   "tags": "outside,winter,day,active,local,recreational"
+ },
+ {
+   "name": "Take a bath",
+   "min": 1,
+   "max": 1,
+   "tags": "inside,night,relaxing,local"
+ },
+ {
+   "name": "Take a shower",
+   "min": 1,
+   "max": 1,
+   "tags": "inside,night,relaxing,local,productive"
+ },
+ {
+   "name": "Go to the Park",
+   "min": 1,
+   "max": 5,
+   "tags": "outside,summer,spring,fall,day,active,remote,recreational"
+ },
+ {
+   "name": "Watch the Sunset",
+   "min": 1,
+   "max": 5,
+   "tags": "outside,relaxing,local,recreational"
+ },
+ {
+   "name": "Have a picnic",
+   "min": 2,
+   "max": 10,
+   "tags": "outside,summer,day,relaxing,remote,recreational"
+ },
+ {
+   "name": "Sledding",
+   "min": 1,
+   "max": 10,
+   "tags": "outside,winter,day,active,remote,recreational"
+ },
+ {
+   "name": "Biking",
+   "min": 1,
+   "max": 10,
+   "tags": "outside,summer,spring,fall,active,remote"
+ },
+ {
+   "name": "Sunbathing",
+   "min": 1,
+   "max": 5,
+   "tags": "outside,summer,day,relaxing,local,recreational"
+ }
+]
