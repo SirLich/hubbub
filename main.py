@@ -14,7 +14,7 @@ def attemptMongoConnection():
         connection_string = "mongodb://" + mongo_ip.strip()
         connection = MongoClient(connection_string)
         db = connection.hubbub
-        activities = db.activities
+        activities = db.testActivities
         return activities
     except Exception as e:
         print("The Mongo connection failed!")
@@ -34,8 +34,30 @@ def doQuery(tag):
         activities_map[a["name"]] = activities_map[a["name"]] + 1
 
 def print_activities():
-    for a in activities_map:
-        print(str(activities_map[a]), a)
+    out_list = []
+    s = [(k, activities_map[k]) for k in sorted(activities_map, key=activities_map.get, reverse=True)]
+    for k in s:
+        out_list.append(k[0])
+
+    print()
+    print("These activities were the best fit: ")
+    for i in range(3):
+        print(out_list[i])
+
+    print()
+    print("You might also consider: ")
+    for i in range(3,8):
+        print(out_list[i])
+
+
+
+    # for i in sorted (activities_map.values()):
+    #     out_list.append(i)
+    # for a in out_list:
+    #     print(a)
+
+    # for a in activities_map:
+    #     print(str(activities_map[a]), a)
 
 def main():
     seed_activites_map()
@@ -74,6 +96,7 @@ def main():
 
     a = input("Can you travel: [l]ocal or [r]emote?, other input to skip >>> ")
     if(a == 'l'):
+
         doQuery("local")
     elif(a == 'r'):
         doQuery("remote")
