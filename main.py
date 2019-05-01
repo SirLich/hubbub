@@ -57,7 +57,6 @@ def view_all():
 
 def play():
     seed_activites_map()
-    print("Welcome to Hubbub!", VERSION)
     print("")
 
     # people = input("How many people are participating? ");
@@ -134,7 +133,6 @@ def add_activity():
         build_activity = {}
         build_activity['tags'] = []
         print("Answer the following questions about your activity to add it to the database")
-        print("Choose the closest option or skip if both apply")
         print("")
         build_activity['name'] = input("What is the activity called: ")
         build_activity['min'] = abs(int(input("Enter the min number of individuals required: ")))
@@ -154,6 +152,7 @@ def add_activity():
             else:
                 print("Skipped. Either duplicate or invalid. Try again.")
         print(build_activity)
+        # Does not add but query is built correctly
         db.testActivities.insert(build_activity)
         print("We have added your activity!")
 
