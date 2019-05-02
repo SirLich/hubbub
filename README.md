@@ -1,22 +1,25 @@
 # hubbub
 Fall 2019, Databases Final Project
 
-Find tags: > db.activities.find({tags: "sport"})
+Welcome to Hubbub!
 
-Not find tags: > db.activities.find({tags: {$ne: "sport"}})
+What is Hubbub?
+Hubbub is a command line activity selection tool. 
+When Hubbub is played a series of questions are asked. These questions are used to query a Mongo database that contains many activities which are assigned a list of tags. The answers provided are compared to the various activity tags. After completing a round of Hubbub you are shown a list of activities which best match the answers provided.
 
-"""
-Next steps:
-    Figure out connection to the MongoDb
-        Using PyMongo (install using pip3)
-        pip3 install --user pymongo
+How to control Hubbub
+Enter commands based on the bracketed letter.
+Example:
+Enter p to play Hubbub
 
-    Create MongoQuery from the yes_list, no_list
-    Sort query and print out
-    Populate the mongo database
-    test? Ha
-"""
+When adding activities, once all desired tags are entered -- enter a blank line to complete.
 
+Features of Hubbub:
+Play Hubbub
+View all activities
+Add an activity (WIP)
+
+Available tags:
 outside
 inside
 
