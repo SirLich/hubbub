@@ -10,6 +10,8 @@ TAGS = [
 'day','night','outside','inside','summer','fall','spring','winter','active','relaxed','productive','recreational','remote','local'
 ]
 
+DEV_MODE = False
+
 def attemptMongoConnection():
     try:
         cred_file = open("credentials.txt","r")
@@ -31,13 +33,20 @@ def seed_activites_map():
 def do_query(tag, people):
 
     fil = {
-    'tags': tag,
-    'min_people': {'$gte': people},
-    'max_people': {'$lte' : people}
+    'tags': tag
     }
+
+    # ,
+    # 'min_people': {'$gte': people},
+    # 'max_people': {'$lte' : people}
 
     for a in db.find(fil):
         activities_map[a["name"]] = activities_map[a["name"]] + 1
+
+def dev_mode_print():
+    s = [(k, activities_map[k]) for k in sorted(activities_map, key=activities_map.get, reverse=True)]
+    for k, v in s:
+        print(k,v)
 
 def print_activities():
     out_list = []
@@ -63,11 +72,8 @@ def play():
     seed_activites_map()
     print("")
 
-    # people = input("How many people are participating? ");
-    # print("")
-
     people = int(input("Enter the number of people participating >>> "))
-
+    print("")
     a = input("Is it: [d]ay or [n]ight, other input to skip >>> ")
     if(a == 'd'):
         do_query("day", people)
@@ -130,7 +136,10 @@ def play():
     print("Calculating the perfect fit... ")
     print("")
 
-    print_activities()
+    if(DEV_MODE):
+        dev_mode_print()
+    else:
+        print_activities()
     activites_map = {}
 
 def add_activity():
@@ -148,40 +157,63 @@ def add_activity():
         for a in TAGS:
             print(a)
         print("")
-        print("Enter tags you want to add: ")
+
+        print("Enter tags you want to add: [a]ccept and continue, [q]uit and cancel")
         while(True):
             t = input("Tag: ")
-            if(t == ""):
+            if(t == "a"):
                 break
+            if(t == 'q'):
+                print("Successfully canceled")
+                return
             if(t in TAGS and t not in build_activity['tags']):
                 build_activity['tags'].append(t)
             else:
                 print("Skipped. Either duplicate or invalid. Try again.")
-        print(build_activity)
-        # Does not add but query is built correctly
-        db.activities.insert(build_activity)
+        db.insert(build_activity)
         print("We have added your activity!")
 
     except Exception as e:
         print("Don't do that")
 
+def delete_activity():
+    view_all()
+    print("")
+    activity_name = input("Enter the activity you want to delete >>> ")
+    fil = {
+    'name': activity_name
+    }
+
+    db.remove(fil)
+    print(activity_name, "has been deleted!")
 def main():
+    global DEV_MODE
+
+    for i in range(150):
+        print("")
     keep_playing = True
     print("")
     print("Welcome to Hubbub!", VERSION)
     print("")
+
     while(keep_playing):
         a = input("Pick an action: [p]lay, [v]iew all activities, [a]dd activity, [q]uit>>> ")
+
         if(a == 'p'):
             play()
         elif(a == 'v'):
             view_all()
         elif(a == 'a'):
             add_activity()
-        elif(a == '1'):
-            print("You' have unlocked a secret!")
+        elif(a == 'beans'):
+            print("Cool beaaanzz bro")
         elif(a == 'q'):
             keep_playing = False
+        elif(a == 'd'):
+            DEV_MODE = not DEV_MODE
+            print("Dev-mode is now:", DEV_MODE)
+        elif(a == 'delete'):
+            delete_activity()
         else:
             print("We couldn't proccess that query. Please try again.")
         print("")
