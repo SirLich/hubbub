@@ -9,6 +9,7 @@ activities_map = {}
 TAGS = [
 'day','night','outside','inside','summer','fall','spring','winter','active','relaxed','productive','recreational','remote','local'
 ]
+
 def attemptMongoConnection():
     try:
         cred_file = open("credentials.txt","r")
@@ -16,7 +17,7 @@ def attemptMongoConnection():
         connection_string = "mongodb://" + mongo_ip.strip()
         connection = MongoClient(connection_string)
         db = connection.hubbub
-        activities = db.testActivities
+        activities = db.activities
         return activities
     except Exception as e:
         print("The Mongo connection failed!")
@@ -27,9 +28,12 @@ def seed_activites_map():
     for a in db.find():
         activities_map[a["name"]] = 0
 
-def do_query(tag):
+def do_query(tag, people):
+
     fil = {
-    'tags': tag
+    'tags': tag,
+    'min_people': {'$gte': people},
+    'max_people': {'$lte' : people}
     }
 
     for a in db.find(fil):
@@ -62,42 +66,44 @@ def play():
     # people = input("How many people are participating? ");
     # print("")
 
+    people = int(input("Enter the number of people participating >>> "))
+
     a = input("Is it: [d]ay or [n]ight, other input to skip >>> ")
     if(a == 'd'):
-        do_query("day")
+        do_query("day", people)
     elif(a == 'n'):
-        do_query("night")
+        do_query("night", people)
     else:
         print("Question skipped")
     print("")
 
     a = input("Is it: [sp]ring, [su]mmer, [f]all or [w]inter, other input to skip >>> ")
     if(a == 'sp'):
-        do_query("spring")
+        do_query("spring", people)
     elif(a == 'su'):
-        do_query("summer")
+        do_query("summer", people)
     elif(a == 'f'):
-        do_query("fall")
+        do_query("fall", people)
     elif(a == 'w'):
-        do_query("w")
+        do_query("winter", people)
     else:
         print("Question skipped")
     print("")
 
     a = input("Do you want to hangout: [i]nside or [o]utside?, other input to skip >>> ")
     if(a == 'i'):
-        do_query("inside")
+        do_query("inside", people)
     elif(a == 'o'):
-        do_query("outside")
+        do_query("outside", people)
     else:
         print("Question skipped")
     print("")
 
     a = input("How are do you want to feel: [a]ctive or [r]elaxed?, other input to skip >>> ")
     if(a == 'a'):
-        do_query("active")
+        do_query("active", people)
     elif(a == 'r'):
-        do_query("relaxed")
+        do_query("relaxed", people)
     else:
         print("Question skipped")
     print("")
@@ -105,18 +111,18 @@ def play():
     a = input("Can you travel: [l]ocal or [r]emote?, other input to skip >>> ")
     if(a == 'l'):
 
-        do_query("local")
+        do_query("local", people)
     elif(a == 'r'):
-        do_query("remote")
+        do_query("remote", people)
     else:
         print("Question skipped")
     print("")
 
     a = input("Do you want your activity to be: [p]roductive or [r]ecreational?, other input to skip >>> ")
     if(a == 'p'):
-        do_query("productive")
+        do_query("productive", people)
     elif(a == 'r'):
-        do_query("recreational")
+        do_query("recreational", people)
     else:
         print("Question skipped")
     print("")
@@ -153,7 +159,7 @@ def add_activity():
                 print("Skipped. Either duplicate or invalid. Try again.")
         print(build_activity)
         # Does not add but query is built correctly
-        db.testActivities.insert(build_activity)
+        db.activities.insert(build_activity)
         print("We have added your activity!")
 
     except Exception as e:
