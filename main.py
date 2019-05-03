@@ -92,6 +92,14 @@ def play():
         do_query("fall", people)
     elif(a == 'w'):
         do_query("winter", people)
+    elif(a == 's'):
+        a = input("Did you mean: [sp]ring or [su]mmer, other input to skip >>> ")
+        if(a == 'sp'):
+            do_query("spring", people)
+        elif(a == 'su'):
+            do_query("summer", people)
+        else:
+            print("Question skipped")
     else:
         print("Question skipped")
     print("")
@@ -105,7 +113,7 @@ def play():
         print("Question skipped")
     print("")
 
-    a = input("How are do you want to feel: [a]ctive or [r]elaxed?, other input to skip >>> ")
+    a = input("What is the vibe: [a]ctive or [r]elaxed?, other input to skip >>> ")
     if(a == 'a'):
         do_query("active", people)
     elif(a == 'r'):
@@ -134,7 +142,6 @@ def play():
     print("")
 
     print("Calculating the perfect fit... ")
-    print("")
 
     if(DEV_MODE):
         dev_mode_print()
